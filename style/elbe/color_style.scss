@@ -1,0 +1,123 @@
+@function contrast($colorA, $colorB) {
+	$yiqA: calc(((red($colorA) * 299) + (green($colorA) * 587) + (blue($colorA) * 114)) / 1000);
+	$yiqB: calc(((red($colorB) * 299) + (green($colorB) * 587) + (blue($colorB) * 114)) / 1000);
+	@return abs($yiqA - $yiqB);
+}
+
+@function mg($map, $value) {
+	@return map-get($map, $value);
+}
+
+@function ifn($a, $b) {
+	@return if($a ==null, $b, $a);
+}
+
+@function inter($colorA, $colorB: #888888, $weight: 50%) {
+	@return mix($colorA , $colorB, $weight);
+}
+
+@mixin colored($back, $front, $border) {
+	color: $front;
+	background-color: $back;
+	border-color: $border;
+}
+
+@mixin blinking($length: 1s) {
+	animation: blinker $length linear infinite;
+}
+
+@keyframes blinker {
+	50% {
+		opacity: 0;
+	}
+}
+
+
+
+// SHOW WHEN THE STYLES ARE NOT BEING USED WITHIN A MODE
+@each $style, $s_colors in $c-styles {
+	.#{$style} {
+		@include blinking();
+		@include colored(rgb(255, 55, 0), white, transparent);
+	}
+}
+
+
+//COLORS
+
+@each $mode, $m_colors in $c-modes {
+	.#{$mode} {
+		$mode_back: mg($m_colors, back);
+		$mode_front: mg($m_colors, front);
+		$mode_border: mg($m_colors, border);
+		@include colored($mode_back, $mode_front, $mode_border);
+
+		.plain{
+			@include colored(transparent, $mode_front, $mode_border);
+		}
+
+		.plain-opaque{
+			@include colored($mode_back, $mode_front, $mode_border);
+		}
+
+		
+
+		@each $style, $s_colors in $c-styles {
+			.#{$style} {
+				animation: none;
+
+				$back: mg($s_colors, back);
+				$border: ifn(mg($s_colors, border), $back);
+
+				$effectiveBack: ifn(if(mg($s_colors, back) == transparent, $mode_back, mg($s_colors, back)), $mode_back);
+				$front: ifn(mg($s_colors, front), if(contrast($mode_front, $effectiveBack) > 128, $mode_front, $mode_back));
+
+				@include colored($back, $front, $border);
+
+				&.minor {
+					$mback: inter(mg($s_colors, back), mg($m_colors, back), 25%);
+					$mfront: mg($s_colors, back);
+					$mborder: ifn(mg($s_colors, border), $mfront);
+
+
+					@include colored($mback, $mfront, $mborder);
+
+					&.hovered {
+						$hback: inter($mback, $mfront, 90%);
+						@include colored($hback, $mfront, $mborder);
+					}
+
+					&.pressed {
+						$pback: inter($mback, $mfront, 75%);
+						@include colored($pback, $mfront, $mborder);
+					}
+
+					&.disabled {
+						$disback: grayscale($mback);
+						$disfront: grayscale($mfront);
+						$disborder: if($mborder ==null, null, grayscale($mborder));
+						
+						@include colored($disback, $disfront, $disborder);
+					}
+
+				}
+
+				&.hovered {
+					$hback: inter($back, $front, 95%);
+					$hborder: if($border ==transparent, transparent, inter($border, $front, 95%));
+					@include colored($hback, $front, $hborder);
+				}
+
+				&.pressed {
+					$pback: inter($back, $front, 85%);
+					$pborder: if($border ==transparent, transparent, inter($border, $front, 85%));
+					@include colored($pback, $front, $pborder);
+				}
+
+				&.disabled {
+					@include colored(grayscale($back), grayscale($front), grayscale($back));
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="title" content="peerTest - collaborative app testing">
+		<meta name="description" content="We aim to make it easier for new developers to connect with people who want to test other peoples apps & provide feedback">
+		<meta name="keywords" content="google, google play, google play store, 20 testers, tester requirement, closed testing, android, app, development,android app">
+		<meta name="robots" content="index, follow">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="language" content="English">
+
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Robin's Apps</title>
+	</head>
+	<body style="background-color: white;">
+		<div id="dialog-mask"></div>
+		<div id="app"></div>
+		<script>
+			document.onreadystatechange = function() {
+    if (document.readyState !== "complete") {
+        document.querySelector("body").style.visibility = "hidden";
+    } else {
+        document.querySelector("body").style.visibility = "visible";
+    }
+};
+		</script>
+		<script type="module" src="/src/index.tsx"></script>
+		
+	</body></html>

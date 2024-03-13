@@ -1,0 +1,19 @@
+@each $style, $size in $t-styles {
+	.text-#{$style}{
+		font-size: $size;
+	}
+}
+
+@each $name, $size in $t-headers {
+
+	.header-#{$name}{
+		@extend .b;
+		line-height: 1;
+		font-size: $size;
+		font-family: $t-font-accent;
+	}
+
+	h#{$name}{
+		@extend .header-#{$name};
+	}
+}

@@ -1,0 +1,3 @@
+apps:
+  disko:
+    ref: ./robbb/robbb.yaml

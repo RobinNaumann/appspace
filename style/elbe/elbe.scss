@@ -1,0 +1,56 @@
+//@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700,900;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+$g-radius: 9px;
+$c-accent: #4254c8;
+$t-font-body:  Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+$t-font-accent: Calistoga, $t-font-body;
+
+$c-modes: (
+	primary: (back: #FFFFFF,
+		front: #222222,
+		border: #22222218),
+	secondary: (back: #EEEEEE,
+		front: #222222,
+		border: #22222214),
+	inverse: (back: #222222,
+		front: #FFFFFF,
+		border: #FFFFFF14)
+);
+
+$c-styles: (
+	accent: (back: $c-accent),
+	error: (back: #F34343),
+	warning: (back: #ab8100),
+	success: (back: #29AC5E),
+	info: (back: #2463AA),
+	//TODO: Button Styles
+	loud: (back: $c-accent, border: transparent),
+	action: (back: transparent, front: $c-accent, border: transparent),
+	integrated: (back: transparent, border: transparent)
+);
+
+$t-styles: (
+	"s": 0.7rem,
+	"m": 1rem,
+	"l": 1.2rem,
+	"huge": 4rem,
+);
+
+$t-headers:(
+	"6": 1.1rem,
+	"5": 1.2rem,
+	"4": 1.4rem,
+	"3": 1.5rem,
+	"2": 1.8rem,
+	"1": 2.0rem,
+);
+
+
+@import "./root.scss";
+@import "./color_style.scss";
+@import "./type_style.scss";
+@import "./components.scss";
+
+
