@@ -1,5 +1,10 @@
 import { DeguService } from "./s_degu";
 
+export interface Config {
+  logo?: string;
+  message?: string;
+}
+
 export interface Key {
   key: string;
 }
@@ -51,12 +56,16 @@ export interface AppDownload {
   url: string;
 }
 
-export class AppsService {
-  static readonly i: AppsService = new AppsService();
+export class ContentService {
+  static readonly i: ContentService = new ContentService();
   constructor() {}
 
+  private async _cfg(): Promise<any> {
+    return (await DeguService.i.shallow("degu.yaml")) as any;
+  }
+
   private async _apps(): Promise<any> {
-    return ((await DeguService.i.shallow("apps.yaml")) as any).apps;
+    return (await this._cfg()).apps;
   }
 
   private async _getAppsInfo(): Promise<(Ref & Key)[]> {
@@ -65,7 +74,6 @@ export class AppsService {
   }
 
   async getApp(key: string): Promise<AppModel> {
-    console.log("getApp", key);
     return {
       key: key,
       ...(await DeguService.i.deep((await this._apps())[key].ref)),
@@ -76,5 +84,9 @@ export class AppsService {
     return Promise.all(
       (await this._getAppsInfo()).map(async (app) => await this.getApp(app.key))
     );
+  }
+
+  async getConfig(): Promise<Config | null> {
+    return (await this._cfg()).config ?? null;
   }
 }

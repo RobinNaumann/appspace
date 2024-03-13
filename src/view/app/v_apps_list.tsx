@@ -1,6 +1,6 @@
 import { AppBit } from "../../bits/b_app";
 import { AppListBit } from "../../bits/b_apps";
-import { AppModel } from "../../service/s_apps";
+import { AppModel } from "../../service/s_content";
 import { go } from "../../util";
 
 export function AppListView({ sorted }: { sorted: boolean }) {
@@ -15,7 +15,11 @@ function _AppListView() {
   const { map } = AppListBit.use();
 
   return map({
-    onData: (apps) => <div>{apps.map((app) => _AppSnippet({ app }))}</div>,
+    onData: (apps) => (
+      <div class="column cross-stretch">
+        {apps.map((app) => _AppSnippet({ app }))}
+      </div>
+    ),
   });
 }
 

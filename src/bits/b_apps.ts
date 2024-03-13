@@ -1,13 +1,13 @@
 import { act } from "preact/test-utils";
 import { CtrlBit, WorkerControl } from "../bit/ctrl_bit";
-import { AppModel, AppsService } from "../service/s_apps";
+import { AppModel, ContentService } from "../service/s_content";
 
 type Inputs = { sorted: boolean };
 type Data = AppModel[];
 
 class Ctrl extends WorkerControl<Inputs, Data> {
   async worker() {
-    const apps = await AppsService.i.getAppList();
+    const apps = await ContentService.i.getAppList();
     if (this.p.sorted) {
       apps.sort((a, b) => {
         return a.releases[0].date > b.releases[0].date ? -1 : 1;

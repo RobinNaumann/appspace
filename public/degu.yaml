@@ -1,0 +1,8 @@
+config:
+  message: "Robin's personal projects"
+
+apps:
+  disko:
+    ref: https://raw.githubusercontent.com/RobinNaumann/disko/main/degu.yaml
+  disko2:
+    ref: https://raw.githubusercontent.com/RobinNaumann/disko/main/degu.yaml

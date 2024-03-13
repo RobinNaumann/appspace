@@ -1,12 +1,12 @@
 import { CtrlBit, WorkerControl } from "../bit/ctrl_bit";
-import { AppModel, AppsService } from "../service/s_apps";
+import { AppModel, ContentService } from "../service/s_content";
 
 type Inputs = { _id: string };
 type Data = AppModel;
 
 class Ctrl extends WorkerControl<Inputs, Data> {
   async worker() {
-    return AppsService.i.getApp(this.p._id);
+    return ContentService.i.getApp(this.p._id);
   }
 }
 

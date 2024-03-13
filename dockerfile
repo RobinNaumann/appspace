@@ -9,6 +9,6 @@ COPY nginx_config.conf /etc/nginx/conf.d/default.conf
 
 
 # npm run build
-# docker build -t registry.gitlab.com/constorux/x .
-# docker push registry.gitlab.com/constorux/x
+# docker build -t registry.gitlab.com/constorux/appspace .
+# docker push registry.gitlab.com/constorux/appspace
 # or run deploy.sh

@@ -10,7 +10,6 @@ export class DeguService {
 
   public async shallow(url: string): Promise<object> {
     const [address, path] = url.split("#");
-    console.log("shallow", address, path);
     const response = await fetch(address);
     if (!response.ok) {
       throw new Error("Error reading apps.yaml: " + response.status);

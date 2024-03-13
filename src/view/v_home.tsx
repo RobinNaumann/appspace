@@ -1,6 +1,5 @@
 import { ChevronDown, ChevronUp, SortDesc, Timer } from "lucide-react";
 import { signal, useSignal } from "@preact/signals";
-import { AppsService } from "../service/s_apps";
 import { AppListView } from "./app/v_apps_list";
 
 export function HomeView({}) {

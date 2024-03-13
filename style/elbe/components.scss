@@ -156,6 +156,11 @@ $main_modes: (stretch, start, end, center, space-between);
   }
 }
 
+.column.cross-stretch-fill{
+  align-items: stretch;
+  width: 100%;
+}
+
 @for $i from 1 through 12 {
   .flex-#{$i} {
     @extend .flex;

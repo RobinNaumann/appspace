@@ -1,6 +1,7 @@
 #!/bin/zsh
-# make script executable: chmod +x deploy.sh
-name="registry.gitlab.com/constorux/peertest"
+## NOTE: make script executable: chmod +x deploy.sh
+
+name="registry.gitlab.com/constorux/appspace"
 
 # Build
 npm run build

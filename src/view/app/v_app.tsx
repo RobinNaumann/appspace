@@ -1,11 +1,11 @@
-import { Download, GitBranch, Globe, Heart } from "lucide-react";
+import { Download, GitBranch, Globe, Heart, Star } from "lucide-react";
 import { AppBit } from "../../bits/b_app";
 import {
   AppAuthor,
   AppDownload,
   AppModel,
   AppRelease,
-} from "../../service/s_apps";
+} from "../../service/s_content";
 import { showConfirmDialog, showToast } from "../../util";
 import { ElbeDialog } from "../../elbe/components";
 import { useSignal } from "@preact/signals";
@@ -23,26 +23,26 @@ function _AppContentView() {
 
   return map({
     onData: (app) => (
-      <div class="column cross-stretch gap-3">
+      <div class="column cross-stretch-fill gap-3">
         <div
-          class="base-limited column cross-stretch gap-3"
+          class="base-limited column cross-stretch-fill gap-3"
           style="margin-top: 2rem"
         >
           <_NameSection app={app} />
-          <div class="row gap-3 cross-start">
-            <div class="flex-2 column cross-stretch gap-3">
+          <div class="row-resp gap-3 cross-start">
+            <div class="flex-2 column cross-stretch-fill gap-3">
               <_AboutSection app={app} />
               <_PlatformsSection app={app} />
             </div>
-            <div class="flex-1 column cross-stretch">
+            <div class="flex-1 column cross-stretch-fill">
               <_ActionsSection app={app} />
             </div>
           </div>
         </div>
         <_ImagesSection app={app} />
 
-        <div class="base-limited row gap-double cross-start">
-          <div class="flex-2 column cross-stretch gap-3">
+        <div class="base-limited row-resp gap-double cross-start">
+          <div class="flex-2 column cross-stretch-fill gap-3">
             <_AuthorsSection authors={app.authors} />
             <_ReleasesSection app={app} />
           </div>
@@ -65,7 +65,7 @@ function _ActionsSection({ app }: { app: AppModel }) {
       ) : null}
       {app.source ? (
         <button class="action" onClick={() => open(app.source)}>
-          <GitBranch />
+          <Star />
           source
         </button>
       ) : null}
