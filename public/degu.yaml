@@ -5,4 +5,4 @@ apps:
   disko:
     ref: https://raw.githubusercontent.com/RobinNaumann/disko/main/degu.yaml
   disko2:
-    ref: https://raw.githubusercontent.com/RobinNaumann/disko/main/degu.yaml
+    ref: https://corsproxy.io/?https%3A%2F%2Fgitlab.com%2Fconstorux%2Fposprotect%2F-%2Fraw%2Fmaster%2Fdegu.yaml

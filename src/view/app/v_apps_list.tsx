@@ -25,12 +25,16 @@ function _AppListView() {
 
 function _AppSnippet({ app }: { app: AppModel }) {
   return (
-    <div class="card primary row" onClick={go("/" + app.key)}>
+    <div
+      class="card primary row"
+      onClick={go("/" + app.key)}
+      style="cursor: pointer "
+    >
       <img src={app.icon} class="icon" style="width: 3rem" />
       <div class="column cross-stretch gap-quarter flex-1">
         <div class="row cross-stretch">
           <div class="text-l b flex-1">{app.name}</div>
-          <AppPlatforms platforms={app.platforms} />
+          <AppPlatforms app={app} />
         </div>
         <div>{app.tagline}</div>
       </div>
@@ -38,7 +42,10 @@ function _AppSnippet({ app }: { app: AppModel }) {
   );
 }
 
-export function AppPlatforms({ platforms }: { platforms: string[] }) {
+export function AppPlatforms({ app }: { app: AppModel }) {
+  if (app.releases.length === 0) return null;
+  const dls = app.releases[app.releases.length - 1].downloads;
+  const platforms = dls.map((dl) => dl.platform);
   return (
     <div class="row gap-half">
       {platforms.map((platform) => (

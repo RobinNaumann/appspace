@@ -12,7 +12,7 @@ import { useSignal } from "@preact/signals";
 
 export function AppView({ app_id }: { app_id: string | null }) {
   return (
-    <AppBit.Provide _id="disko">
+    <AppBit.Provide _id={app_id}>
       <_AppContentView />
     </AppBit.Provide>
   );
@@ -114,7 +114,7 @@ function _ImagesSection({ app }: { app: AppModel }) {
           onClick={() => open(img, "_blank")}
           src={img}
           alt={app.name + " screenshot"}
-          style="height: 14rem; "
+          style="height: 18rem; border-radius: 0.5rem; cursor: pointer;"
         />
       ))}
       <div style="min-width: 1rem " />

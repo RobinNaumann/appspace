@@ -10,7 +10,7 @@ import { HeaderView } from "./view/v_header";
 import { FooterView } from "./view/v_footer";
 import { AppView } from "./view/app/v_app";
 
-export const appVersion = "0.8.17";
+export const appVersion = "0.2.4";
 
 function _Router({}) {
   return (

@@ -7,6 +7,12 @@ export function HomeView({}) {
 
   return (
     <div class="base-limited column cross-stretch gap-double">
+      <p>
+        <b>hey there :)</b>
+        <br /> these are some projects I worked on in my free time.
+        <br />
+        yours, <a href="https://robbb.in">Robin</a>
+      </p>
       <h3>my apps</h3>
 
       <div class="row-resp resp-reverse gap-double">

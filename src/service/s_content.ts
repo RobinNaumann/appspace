@@ -28,7 +28,6 @@ export interface AppModel extends Key {
   // required:
   name: string;
   icon: string;
-  platforms: string[];
   tagline: string;
   releases: AppRelease[];
   // optional:
