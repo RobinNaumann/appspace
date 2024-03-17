@@ -80,9 +80,17 @@ export class ContentService {
   }
 
   async getAppList(): Promise<AppModel[]> {
-    return Promise.all(
-      (await this._getAppsInfo()).map(async (app) => await this.getApp(app.key))
+    const apps = Promise.all(
+      (await this._getAppsInfo()).map(async (app) => {
+        try {
+          return await this.getApp(app.key);
+        } catch (e) {
+          console.log("could not load app " + app, e);
+          return null;
+        }
+      })
     );
+    return (await apps).filter((app) => app !== null) as AppModel[];
   }
 
   async getConfig(): Promise<Config | null> {

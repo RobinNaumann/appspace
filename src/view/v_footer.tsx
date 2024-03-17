@@ -8,18 +8,18 @@ import {
   X,
 } from "lucide-react";
 import { imsg } from "../util";
-import { appVersion } from "..";
+import { appInfo } from "..";
 
 export function FooterView() {
   return (
     <div class="footer">
       {imsg({
-        en: "degu Appspace written by",
-        de: "degu Appspace geschrieben von",
+        en: `${appInfo.name} written by`,
+        de: `${appInfo.name} geschrieben von`,
       })}
       &nbsp;
-      <a href="https://robbb.in">Robin</a>.<br />v{appVersion}{" "}
-      <a href="https://gitlab.com/constorux/appspace">source code</a>
+      <a href="https://robbb.in">Robin</a>.<br />v{appInfo.version}{" "}
+      <a href={appInfo.repo}>source code</a>
       &nbsp;<a href="https://robbb.in/impressum.html">imprint/impressum</a>
       <div class="i" style="margin-top: 10px">
         developed in{" "}

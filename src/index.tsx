@@ -10,7 +10,11 @@ import { HeaderView } from "./view/v_header";
 import { FooterView } from "./view/v_footer";
 import { AppView } from "./view/app/v_app";
 
-export const appVersion = "0.2.4";
+export const appInfo = {
+  name: "degu appSpace",
+  version: "0.2.8",
+  repo: "https://gitlab.com/constorux/appspace",
+};
 
 function _Router({}) {
   return (

@@ -1,18 +1,7 @@
-import {
-  CheckCircle,
-  Circle,
-  FilePlus,
-  Trash,
-  Trash2,
-  Trash2Icon,
-  X,
-  User,
-} from "lucide-react";
-import { asString, createNewList, imsg, listId } from "../util";
-import { Spinner } from "..";
+import { User } from "lucide-react";
 import { route } from "preact-router";
 import { useEffect } from "preact/hooks";
-import { computed, useSignal } from "@preact/signals";
+import { useSignal } from "@preact/signals";
 import { Config, ContentService } from "../service/s_content";
 
 export function HeaderView() {

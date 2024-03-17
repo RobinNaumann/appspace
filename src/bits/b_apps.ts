@@ -10,7 +10,14 @@ class Ctrl extends WorkerControl<Inputs, Data> {
     const apps = await ContentService.i.getAppList();
     if (this.p.sorted) {
       apps.sort((a, b) => {
-        return a.releases[0].date > b.releases[0].date ? -1 : 1;
+        return a.name.localeCompare(b.name);
+      });
+    } else {
+      apps.sort((a, b) => {
+        // sort by latest release date:
+        const aDate = a.releases?.[a.releases.length - 1]?.date;
+        const bDate = b.releases?.[b.releases.length - 1]?.date;
+        if (aDate && bDate) return bDate.localeCompare(aDate);
       });
     }
     return apps;

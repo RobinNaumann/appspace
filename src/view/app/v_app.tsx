@@ -1,4 +1,4 @@
-import { Download, GitBranch, Globe, Heart, Star } from "lucide-react";
+import { Download, GitBranch, Globe, Globe2, Heart, Star } from "lucide-react";
 import { AppBit } from "../../bits/b_app";
 import {
   AppAuthor,
@@ -106,18 +106,32 @@ function _AboutSection({ app }: { app: AppModel }) {
 }
 
 function _ImagesSection({ app }: { app: AppModel }) {
+  const lBoxSig = useSignal<string>(null);
   return (
     <div class="row main-start scrollbars-none" style="overflow: scroll">
       <div style="min-width: max(1rem, calc((100vw - 700px)/2))" />
-      {app.screenshots.map((img) => (
+      {(app.screenshots ?? []).map((img) => (
         <img
-          onClick={() => open(img, "_blank")}
+          onClick={() => (lBoxSig.value = img)}
           src={img}
           alt={app.name + " screenshot"}
-          style="height: 18rem; border-radius: 0.5rem; cursor: pointer;"
+          class="raised dialog modal primary"
+          style="height: 18rem;margin: 1rem 0; border-radius: 0.5rem; cursor: pointer;"
         />
       ))}
       <div style="min-width: 1rem " />
+
+      <dialog
+        open={lBoxSig.value != null}
+        onClick={() => (lBoxSig.value = null)}
+      >
+        <img
+          src={lBoxSig.value ?? ""}
+          alt={app.name + " screenshot"}
+          class="raised dialog modal primary"
+          style="margin: 2rem; border-radius: 0.5rem; cursor: pointer; object-fit: contain; max-width: 90%; max-height: 90%;"
+        />
+      </dialog>
     </div>
   );
 }
@@ -202,8 +216,8 @@ export function DownloadView({
 }) {
   function download(dl: AppDownload) {
     openS.value = false;
-    showToast("downloading for " + release.downloads[0].platform);
-    open(release.downloads[0].url, "_self");
+    showToast("downloading for " + dl.platform);
+    open(dl.url, "_self");
   }
 
   const openS = useSignal(false);
@@ -226,6 +240,7 @@ export function DownloadView({
         <Download />
         {iconOnly ? null : "download"}
       </button>
+      <_openWebButton release={iconOnly ? null : release} />
       <ElbeDialog
         open={openS.value}
         icon={<Download style="margin-right: -0.5rem;margin-left: 1rem" />}
@@ -250,5 +265,25 @@ export function DownloadView({
         </div>
       </ElbeDialog>
     </div>
+  );
+}
+
+function _openWebButton({ release }: { release: AppRelease }) {
+  const web = release?.downloads.find(
+    (dl) => dl.platform.toLowerCase() == "web"
+  );
+
+  if (!web) return null;
+
+  return (
+    <button
+      class="loud minor"
+      onClick={() => {
+        open(web.url, "_self");
+      }}
+    >
+      <Globe2 />
+      open
+    </button>
   );
 }
