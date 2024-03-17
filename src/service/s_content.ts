@@ -3,6 +3,7 @@ import { DeguService } from "./s_degu";
 export interface Config {
   logo?: string;
   message?: string;
+  heromsg?: boolean;
 }
 
 export interface Key {

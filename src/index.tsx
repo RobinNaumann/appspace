@@ -12,7 +12,7 @@ import { AppView } from "./view/app/v_app";
 
 export const appInfo = {
   name: "degu appSpace",
-  version: "0.2.8",
+  version: "0.2.9",
   repo: "https://gitlab.com/constorux/appspace",
 };
 

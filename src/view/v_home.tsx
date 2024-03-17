@@ -1,18 +1,26 @@
 import { ChevronDown, ChevronUp, SortDesc, Timer } from "lucide-react";
 import { signal, useSignal } from "@preact/signals";
 import { AppListView } from "./app/v_apps_list";
+import { Config, ContentService } from "../service/s_content";
+import { useEffect } from "preact/hooks";
 
 export function HomeView({}) {
+  const cfgS = useSignal<Config | null>(null);
+  useEffect(() => {
+    ContentService.i.getConfig().then((cfg) => (cfgS.value = cfg));
+  }, []);
   const sortSignal = useSignal(true);
 
   return (
     <div class="base-limited column cross-stretch gap-double">
-      <p>
-        <b>hey there :)</b>
-        <br /> these are some projects I worked on in my free time.
-        <br />
-        yours, <a href="https://robbb.in">Robin</a>
-      </p>
+      {cfgS.value?.heromsg ? (
+        <p>
+          <b>hey there :)</b>
+          <br /> these are some projects I worked on in my free time.
+          <br />
+          yours, <a href="https://robbb.in">Robin</a>
+        </p>
+      ) : null}
       <h3>my apps</h3>
 
       <div class="row-resp resp-reverse gap-double">

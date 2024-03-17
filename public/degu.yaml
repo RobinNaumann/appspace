@@ -1,5 +1,6 @@
 config:
   message: "Robin's personal projects"
+  heromsg: true
 
 apps:
   disko:

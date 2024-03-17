@@ -14,7 +14,9 @@ about: >
 icon: https://gitlab.com/constorux/appspace/-/raw/main/public/icon.svg
 source: https://gitlab.com/constorux/appspace/
 donate: https://www.buymeacoffee.com/robinnaumann
-# screenshots:
+screenshots:
+  - https://gitlab.com/constorux/appspace/-/raw/main/screenshots/screenshot1.png
+  - https://gitlab.com/constorux/appspace/-/raw/main/screenshots/screenshot2.png
 releases: 
   - version: latest
     notes: updates are applied automatically

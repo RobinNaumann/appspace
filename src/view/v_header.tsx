@@ -3,6 +3,7 @@ import { route } from "preact-router";
 import { useEffect } from "preact/hooks";
 import { useSignal } from "@preact/signals";
 import { Config, ContentService } from "../service/s_content";
+import { Rob3in } from "../elbe/rob3in";
 
 export function HeaderView() {
   const cfgS = useSignal<Config | null>(null);
@@ -19,15 +20,12 @@ export function HeaderView() {
           {cfgS.value?.logo ? (
             <b>{cfgS.value?.logo}</b>
           ) : (
-            <div style="font-weight: normal">
-              <b class="b">apps</b>
-              <span class="action b">
-                •rob
-                <sup style="margin-left: -0.05rem;margin-right: -0.4rem; vertical-align: 0.75rem; font-size: 0.7rem; font-weight: 900">
-                  3
-                </sup>
-                ın
-              </span>
+            <div class="row gap-none svg-filled" style="font-weight: normal">
+              <b class="" style="font-family: 'Space Mono';">
+                apps
+              </b>
+              <span class="action b">•</span>
+              <Rob3in height="0.87rem" />
             </div>
           )}
         </div>
