@@ -1,0 +1,23 @@
+# dego is a simple knowledge management tool. It allows me to publish
+# information about projects, tools in a decentralized way.
+# for a usecase, check out apps.robbb.in
+
+name: appSpace
+authors: 
+  - ref: https://gist.githubusercontent.com/RobinNaumann/7d9d5b8902a697cda1f0ba2c5b7234c6/raw/46ebed8489de7e4458335ae434fee986d594504b/robin.degu.yaml
+    role: developer
+tagline: find testers for your project
+about: >
+  the tool allows you to find testers for your project.
+  This is especially useful for apps you want to publish on the play store.
+  The software is open source.
+icon: https://gitlab.com/constorux/peertest/-/raw/main/public/icon.svg
+source: https://gitlab.com/constorux/peertest/
+donate: https://www.buymeacoffee.com/robinnaumann
+# screenshots:
+releases: 
+  - version: latest
+    notes: updates are applied automatically
+    downloads:
+      - platform: web
+        url: https://peertest.org
