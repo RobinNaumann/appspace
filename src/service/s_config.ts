@@ -1,7 +1,7 @@
 import { ContentService } from "./s_content";
 
 export interface Config {
-  logo: string;
+  logo: string | null;
   logo_dark?: string;
   logo_height: number;
 
@@ -17,7 +17,7 @@ export interface Config {
 }
 
 const _defaults: Config = {
-  logo: "./icon_long.png",
+  logo: null,
   logo_height: 1.1,
   imprint: null,
   title: "indipendent apps",

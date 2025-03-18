@@ -8,8 +8,8 @@ The app is part of the **[degu](#degu)** system.
 
 ### Screenshots
 
-_<img src="./screenshots/screenshot1.png" width="350" />_
-_<img src="./screenshots/screenshot2.png" width="350" />_
+_<img src="./screenshots/sc0.png" width="350" />_
+_<img src="./screenshots/sc1.png" width="350" />_
 
 ### Install
 

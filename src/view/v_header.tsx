@@ -7,6 +7,9 @@ function _logo() {
   const themeBit = ThemeBit.use();
   const c = appConfig();
 
+  const logo = c.logo ?? "./icon_long.png";
+  const logoDark = c.logo_dark ?? c.logo ?? "./icon_long_dark.png";
+
   return themeBit.onData((d) => (
     <a
       href={"/"}
@@ -20,7 +23,7 @@ function _logo() {
     >
       <img
         alt="logo"
-        src={d.dark ? c.logo_dark ?? c.logo : c.logo}
+        src={d.dark ? logoDark : logo}
         style={{
           height: `${c.logo_height}rem`,
           objectFit: "contain",
