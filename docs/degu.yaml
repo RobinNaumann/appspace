@@ -4,6 +4,10 @@
 
 type: appspace_config
 config:
+  # (bool) whether to use single page app mode (for github pages and similar)
+  # will use hash based routing (/#/app) instead of path based routing (/app)
+  spa: true
+
   # title:              (string) The title displayed on the top
   # message:            (string) The message displayed on the top
   # imprint:            (string) link to your imprint
@@ -15,8 +19,8 @@ config:
   # theme_dark:         (true|false|'auto') whether to use dark mode
   # theme_accent:       (string) the accent color in #hex
 
-  # show_source_button: (boolean) show a link to this repository
-  # show_dark_button:   (boolean) show a dark mode toggle
+  # show_source_button: (bool) show a link to this repository
+  # show_dark_button:   (bool) show a dark mode toggle
 
 apps:
   appspace:

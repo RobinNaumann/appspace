@@ -1,6 +1,7 @@
 import "elbe-ui/dist/elbe.css";
 
 import { ElbeTheme, LayerColor } from "elbe-ui";
+import { createHashHistory } from "history";
 import { Loader2 } from "lucide-react";
 import { render } from "preact";
 import { Route, Router } from "preact-router";
@@ -21,7 +22,7 @@ export const appInfo = {
 
 function _Router({}) {
   return (
-    <Router>
+    <Router history={appConfig().spa ? (createHashHistory() as any) : null}>
       <Route path="/" component={HomeView} />
       <Route path="/:app_id?" component={AppView} />
     </Router>

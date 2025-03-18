@@ -18,6 +18,8 @@ export interface Config {
   moewe_url: string | null;
   moewe_project: string | null;
   moewe_app: string | null;
+
+  spa?: boolean;
 }
 
 const _defaults: Config = {
@@ -34,6 +36,8 @@ const _defaults: Config = {
   moewe_url: null,
   moewe_project: null,
   moewe_app: null,
+
+  spa: false,
 };
 
 // ========= Service =========
