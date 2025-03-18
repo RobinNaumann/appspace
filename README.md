@@ -15,7 +15,7 @@ _<img src="./screenshots/sc1.png" width="350" />_
 
 ##### Static Hosting
 
-You can host the appSpace on any static hosting provider. Just upload the files from the `dist` directory to the server and you're good to go.
+You can host the appSpace on any static hosting provider. Just upload the content of the `docs` directory to the server and you're good to go.
 
 ##### Docker
 

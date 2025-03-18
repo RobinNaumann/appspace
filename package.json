@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "rm -rf ./dist && vite build",
+    "build": "rm -rf ./docs && vite build ",
     "preview": "vite preview"
   },
   "dependencies": {
