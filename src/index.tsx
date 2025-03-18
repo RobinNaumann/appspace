@@ -14,7 +14,7 @@ import { HomeView } from "./view/v_home";
 
 export const appInfo = {
   name: "degu appSpace",
-  version: "0.2.9",
+  version: "0.3.0",
   repo: "https://github.com/RobinNaumann/appspace",
 };
 
@@ -70,8 +70,12 @@ export function Spinner() {
     </div>
   );
 }
-l10nInit();
-await loadAppConfig();
-document.title = appConfig().title;
 
-render(<Root />, document.getElementById("app"));
+async function serve() {
+  l10nInit();
+  await loadAppConfig();
+  document.title = appConfig().title;
+
+  render(<Root />, document.getElementById("app"));
+}
+serve();
