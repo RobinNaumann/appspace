@@ -6,7 +6,7 @@ import { AppSection } from "../v_app";
 
 function _platformImagePath(platform: string): string {
   const p = platform.toLowerCase().trim();
-  return `/_assets/img/icon_device_${
+  return `./assets/img/icon_device_${
     ["android", "ios", "web"].includes(p) ? p : "other"
   }.svg`;
 }

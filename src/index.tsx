@@ -7,6 +7,7 @@ import { Route, Router } from "preact-router";
 import { ThemeBit } from "./bits/b_theme";
 import { l10nInit } from "./service/l10n/l10n";
 import { appConfig, loadAppConfig } from "./service/s_config";
+import { moeweInit } from "./service/s_moewe";
 import { AppView } from "./view/app/v_app";
 import { FooterView } from "./view/v_footer";
 import { HeaderView } from "./view/v_header";
@@ -14,7 +15,7 @@ import { HomeView } from "./view/v_home";
 
 export const appInfo = {
   name: "degu appSpace",
-  version: "0.3.0",
+  version: "0.3.1",
   repo: "https://github.com/RobinNaumann/appspace",
 };
 
@@ -74,6 +75,7 @@ export function Spinner() {
 async function serve() {
   l10nInit();
   await loadAppConfig();
+  await moeweInit();
   document.title = appConfig().title;
 
   render(<Root />, document.getElementById("app"));

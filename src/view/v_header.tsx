@@ -7,8 +7,8 @@ function _logo() {
   const themeBit = ThemeBit.use();
   const c = appConfig();
 
-  const logo = c.logo ?? "./icon_long.png";
-  const logoDark = c.logo_dark ?? c.logo ?? "./icon_long_dark.png";
+  const logo = c.logo ?? "./assets/icon_long.png";
+  const logoDark = c.logo_dark ?? c.logo ?? "./assets/icon_long_dark.png";
 
   return themeBit.onData((d) => (
     <a

@@ -1,6 +1,4 @@
-# just uncomment the lines you want to change.
-# for documentation and examples for degu, see:
-# https://github.com/RobinNaumann/appspace/blob/main/README.md#degu
+# just uncomment the lines you want to change
 
 type: appspace_config
 config:

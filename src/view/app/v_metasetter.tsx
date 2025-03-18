@@ -1,6 +1,7 @@
 import { useEffect } from "preact/hooks";
 import { appConfig } from "../../service/s_config";
 import { AppModel } from "../../service/s_content";
+import { moewe } from "../../service/s_moewe";
 
 function _setPageMeta(app: AppModel) {
   document.title = `${app.name} - ${appConfig().title}`;
@@ -22,10 +23,10 @@ function _setPageMeta(app: AppModel) {
 }
 
 export function PageMetaSetter({ app }: { app: AppModel }) {
-  _setPageMeta(app);
   useEffect(() => {
     console.log("setting page meta");
     _setPageMeta(app);
+    moewe.event("open_app", { app_id: app.name });
   }, [app]);
 
   return <div style="display: none" />;

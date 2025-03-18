@@ -14,6 +14,10 @@ export interface Config {
 
   theme_accent: string;
   theme_dark: boolean | "auto";
+
+  moewe_url: string | null;
+  moewe_project: string | null;
+  moewe_app: string | null;
 }
 
 const _defaults: Config = {
@@ -26,6 +30,10 @@ const _defaults: Config = {
   show_dark_button: true,
   theme_accent: "#323652",
   theme_dark: "auto",
+  // moewe
+  moewe_url: null,
+  moewe_project: null,
+  moewe_app: null,
 };
 
 // ========= Service =========

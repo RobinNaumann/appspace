@@ -11,7 +11,7 @@ about: >
   appSpace is a knowledge management tool. It allows me to publish
   information about projects, tools in a decentralized way.
   for a usecase, check out apps.robbb.in
-icon: https://raw.githubusercontent.com/RobinNaumann/appspace/refs/heads/main/public/icon.svg
+icon: https://raw.githubusercontent.com/RobinNaumann/appspace/refs/heads/main/public/assets/icon.svg
 source: https://github.com/RobinNaumann/appspace/
 donate: https://www.buymeacoffee.com/robinnaumann
 screenshots:

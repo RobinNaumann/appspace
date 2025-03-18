@@ -13,12 +13,16 @@ _<img src="./screenshots/sc1.png" width="350" />_
 
 ### Install
 
-You can install the appSpace using docker. I would strongly advise you to use docker-compose with something like `traefik` for HTTPS support.
+##### Static Hosting
+
+You can host the appSpace on any static hosting provider. Just upload the files from the `dist` directory to the server and you're good to go.
+
+##### Docker
+
+You can install the appSpace using Docker. I would strongly advise you to use docker-compose with something like `traefik` for HTTPS support.
 A minimal `docker-compose.yaml` file could look like this:
 
 ```yaml
-version: "3.3"
-
 services:
   appspace:
     image: registry.gitlab.com/constorux/appspace
