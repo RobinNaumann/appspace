@@ -9,7 +9,7 @@ function _logo() {
 
   return themeBit.onData((d) => (
     <a
-      href={c.home_link}
+      href={"/"}
       class="row"
       style={{
         gap: ".5rem",

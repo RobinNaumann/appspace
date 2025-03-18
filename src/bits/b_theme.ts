@@ -21,9 +21,9 @@ class Ctrl extends WorkerControl<Inputs, Data> {
     const c = appConfig();
 
     const dark =
-      c.dark === "auto"
+      c.theme_dark === "auto"
         ? window.matchMedia("(prefers-color-scheme: dark)").matches
-        : c.dark;
+        : c.theme_dark;
 
     _setBodyBg(dark);
     return { dark: dark };

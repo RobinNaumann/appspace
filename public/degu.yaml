@@ -5,8 +5,11 @@ config:
     yours, Robin
   logo: "https://robbb.in/assets/img/logo_robbbin_dark.png"
   logo_dark: "https://robbb.in/assets/img/logo_robbbin_light.png"
+  imprint: https://robbb.in/impressum.html
 
 apps:
+  appspace:
+    ref: https://raw.githubusercontent.com/RobinNaumann/appspace/main/degu.yaml
   printikum:
     ref: https://raw.githubusercontent.com/RobinNaumann/printikum/main/degu.yaml
   disko:

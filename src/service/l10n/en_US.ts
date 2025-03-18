@@ -1,11 +1,12 @@
 import { L10nData } from "./l10n";
 
 export const _en_US: L10nData = {
-  myapps: "My Apps",
+  myapps: "Apps",
   recent: "recent",
   sorted: "sorted",
   search: "search",
   developed_in: "developed in",
+  imprint: "Imprint",
 
   app: {
     about: "About",

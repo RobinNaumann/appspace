@@ -7,6 +7,7 @@ import { ImagesSection } from "./sections/v_s_images";
 import { AppNameSection } from "./sections/v_s_name";
 import { PlatformsSection } from "./sections/v_s_platforms";
 import { ReleasesSection } from "./sections/v_s_versions";
+import { PageMetaSetter } from "./v_metasetter";
 
 export function AppView({ app_id }: { app_id: string | null }) {
   return (
@@ -22,6 +23,7 @@ function _AppContentView() {
   return map({
     onData: (app) => (
       <Column gap={3}>
+        <PageMetaSetter app={app} />
         <Column gap={3} class="padded base-limited">
           <AppNameSection app={app} />
           <Row class="row-resp" cross="start" gap={3}>

@@ -1,5 +1,6 @@
 import { appInfo } from "..";
 import { l10n } from "../service/l10n/l10n";
+import { appConfig } from "../service/s_config";
 
 function Hamburg({ width }: { width: number }) {
   return (
@@ -35,7 +36,8 @@ export function FooterView() {
       {`${appInfo.name} v${appInfo.version}`}
       <br />
       <a href={appInfo.repo}>source code</a>
-      &nbsp;<a href="https://robbb.in/impressum.html">imprint/impressum</a>
+      &nbsp;
+      {appConfig().imprint && <a href={appConfig().imprint}>{l10n.imprint}</a>}
       <div style="margin-top: 10px">
         {l10n.developed_in}
         <span style="margin: 0 0.4rem">

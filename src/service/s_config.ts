@@ -4,21 +4,28 @@ export interface Config {
   logo: string;
   logo_dark?: string;
   logo_height: number;
-  home_link: string | null;
+
+  imprint: string | null;
+
+  title: string;
   message: string | null;
   show_source_button: boolean;
   show_dark_button: boolean;
-  dark: boolean | "auto";
+
+  theme_accent: string;
+  theme_dark: boolean | "auto";
 }
 
 const _defaults: Config = {
   logo: "./icon_long.png",
   logo_height: 1.1,
-  home_link: "/",
+  imprint: null,
+  title: "indipendent apps",
   message: null,
   show_source_button: true,
   show_dark_button: true,
-  dark: "auto",
+  theme_accent: "#323652",
+  theme_dark: "auto",
 };
 
 // ========= Service =========

@@ -12,6 +12,7 @@ export interface L10nData {
   sorted: s;
   search: s;
   developed_in: s;
+  imprint: s;
   app: {
     about: s;
     platforms: s;
