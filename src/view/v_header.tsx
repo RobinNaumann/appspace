@@ -1,55 +1,60 @@
-import { User } from "lucide-react";
-import { route } from "preact-router";
-import { useEffect } from "preact/hooks";
-import { useSignal } from "@preact/signals";
-import { Config, ContentService } from "../service/s_content";
-import { Rob3in } from "../elbe/rob3in";
+import { Header, IconButton } from "elbe-ui";
+import { GithubIcon, Moon, Sun } from "lucide-react";
+import { ThemeBit } from "../bits/b_theme";
+import { appConfig } from "../service/s_config";
+
+function _logo() {
+  const themeBit = ThemeBit.use();
+  const c = appConfig();
+
+  return themeBit.onData((d) => (
+    <a
+      href={c.home_link}
+      class="row"
+      style={{
+        gap: ".5rem",
+        cursor: "pointer",
+        paddingLeft: ".75rem",
+        textDecoration: "none",
+      }}
+    >
+      <img
+        alt="logo"
+        src={d.dark ? c.logo_dark ?? c.logo : c.logo}
+        style={{
+          height: `${c.logo_height}rem`,
+          objectFit: "contain",
+        }}
+      />
+    </a>
+  ));
+}
+
+function _gitLink() {
+  return (
+    <IconButton.plain
+      icon={GithubIcon}
+      onTap={() => window.open("https://github.com/RobinNaumann/appspace")}
+    />
+  );
+}
 
 export function HeaderView() {
-  const cfgS = useSignal<Config | null>(null);
-
-  useEffect(() => {
-    ContentService.i.getConfig().then((cfg) => (cfgS.value = cfg));
-  }, []);
-
-  return (
-    <div>
-      <div style="height: 5rem"></div>
-      <div class="header">
-        <div class="header-title flex-1 cross-start" onClick={goHome}>
-          {cfgS.value?.logo ? (
-            <b>{cfgS.value?.logo}</b>
-          ) : (
-            <div class="row gap-none svg-filled" style="font-weight: normal">
-              <b class="" style="font-family: 'Space Mono';">
-                apps
-              </b>
-              <span class="action b">•</span>
-              <Rob3in height="0.87rem" />
-            </div>
+  const themeBit = ThemeBit.use();
+  return themeBit.onData((d) => (
+    <Header
+      back={_logo()}
+      actions={
+        <>
+          {appConfig().show_source_button && _gitLink()}
+          {appConfig().show_dark_button && (
+            <IconButton.plain
+              icon={d.dark ? Sun : Moon}
+              onTap={() => themeBit.ctrl.toggleDark()}
+            />
           )}
-        </div>
-        <div class="text-s  b" style="opacity: 0.5">
-          {cfgS.value?.message ?? ""}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function goAccount() {
-  route("/account");
-}
-
-function goHome() {
-  route("/");
-}
-
-function ProfileButton() {
-  return (
-    <button class="integrated" onClick={goAccount}>
-      <div class="if-wide">heyy</div>
-      <User />
-    </button>
-  );
+        </>
+      }
+    />
+  ));
 }

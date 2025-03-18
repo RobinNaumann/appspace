@@ -1,8 +1,14 @@
 config:
-  message: "Robin's personal projects"
-  heromsg: true
+  message: |
+    <b>hey there :)</b> <br>
+    these are some projects I worked on in my free time. <br>
+    yours, Robin
+  logo: "https://robbb.in/assets/img/logo_robbbin_dark.png"
+  logo_dark: "https://robbb.in/assets/img/logo_robbbin_light.png"
 
 apps:
+  printikum:
+    ref: https://raw.githubusercontent.com/RobinNaumann/printikum/main/degu.yaml
   disko:
     ref: https://raw.githubusercontent.com/RobinNaumann/disko/main/degu.yaml
   posProtect:

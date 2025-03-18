@@ -1,14 +1,16 @@
-import { Component, render } from "preact";
-import "../style/elbe/elbe.scss";
-import "../style/google.scss";
-import "../style/base.scss";
+import "elbe-ui/dist/elbe.css";
+
+import { ElbeTheme } from "elbe-ui";
 import { Loader2 } from "lucide-react";
-import { Route, Router, route } from "preact-router";
-import { useEffect } from "preact/hooks";
-import { HomeView } from "./view/v_home";
-import { HeaderView } from "./view/v_header";
-import { FooterView } from "./view/v_footer";
+import { render } from "preact";
+import { Route, Router } from "preact-router";
+import { ThemeBit } from "./bits/b_theme";
+import { l10nInit } from "./service/l10n/l10n";
+import { loadAppConfig } from "./service/s_config";
 import { AppView } from "./view/app/v_app";
+import { FooterView } from "./view/v_footer";
+import { HeaderView } from "./view/v_header";
+import { HomeView } from "./view/v_home";
 
 export const appInfo = {
   name: "degu appSpace",
@@ -25,11 +27,12 @@ function _Router({}) {
   );
 }
 
-class App extends Component {
+function App() {
+  const themeBit = ThemeBit.use();
   // some method that returns a promise
 
-  render() {
-    return (
+  return themeBit.onData((d) => (
+    <ElbeTheme dark={d.dark} seed={{}}>
       <div>
         <HeaderView />
 
@@ -38,15 +41,15 @@ class App extends Component {
         <FooterView />
         <div style="height:0px width: 0px; border: solid 1px transparent"></div>
       </div>
-    );
-  }
+    </ElbeTheme>
+  ));
 }
 
 function Root() {
   return (
-    <div class="content-base elbe-base primary">
+    <ThemeBit.Provide>
       <App />
-    </div>
+    </ThemeBit.Provide>
   );
 }
 
@@ -60,5 +63,6 @@ export function Spinner() {
     </div>
   );
 }
-
+l10nInit();
+await loadAppConfig();
 render(<Root />, document.getElementById("app"));

@@ -1,5 +1,4 @@
-import { act } from "preact/test-utils";
-import { CtrlBit, WorkerControl } from "../bit/ctrl_bit";
+import { CtrlBit, WorkerControl } from "elbe-ui";
 import { AppModel, ContentService } from "../service/s_content";
 
 type Inputs = { sorted: boolean };

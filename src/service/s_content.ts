@@ -1,11 +1,5 @@
 import { DeguService } from "./s_degu";
 
-export interface Config {
-  logo?: string;
-  message?: string;
-  heromsg?: boolean;
-}
-
 export interface Key {
   key: string;
 }
@@ -60,7 +54,7 @@ export class ContentService {
   static readonly i: ContentService = new ContentService();
   constructor() {}
 
-  private async _cfg(): Promise<any> {
+  public async _cfg(): Promise<any> {
     return (await DeguService.i.shallow("degu.yaml")) as any;
   }
 
@@ -92,9 +86,5 @@ export class ContentService {
       })
     );
     return (await apps).filter((app) => app !== null) as AppModel[];
-  }
-
-  async getConfig(): Promise<Config | null> {
-    return (await this._cfg()).config ?? null;
   }
 }
