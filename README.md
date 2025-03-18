@@ -120,6 +120,7 @@ releases:
 used to define a user. An example is found [here](https://gist.githubusercontent.com/RobinNaumann/7d9d5b8902a697cda1f0ba2c5b7234c6/raw/46ebed8489de7e4458335ae434fee986d594504b/robin.degu.yaml). A file of type `user` can contain the following fields:
 
 ```yaml
+type: user
 name: Robin Naumann
 url: https://robbb.in
 socials:
