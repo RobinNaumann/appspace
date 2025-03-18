@@ -13,11 +13,15 @@ _<img src="./screenshots/sc1.png" width="350" />_
 
 ### Install
 
-##### Static Hosting
+#### Static Hosting
 
 You can host the appSpace on any static hosting provider. Just upload the content of the `docs` directory to the server and you're good to go.
 
-##### Docker
+> 💡 If you are using a provider like github pages or similar, make sure to set `spa` to `true`.
+>
+> As a [demo](https://robinnaumann.github.io/appspace/), the `docs` folder of this repo is hosted on github pages.
+
+#### Docker
 
 You can install the appSpace using Docker. I would strongly advise you to use docker-compose with something like `traefik` for HTTPS support.
 A minimal `docker-compose.yaml` file could look like this:
@@ -32,7 +36,7 @@ services:
       - ./degu.yaml:/app/degu.yaml
 ```
 
-##### Configuration
+#### Configuration
 
 Your appSpace needs a `degu.yaml` file. This file defines the apps you want to display. You can find an example file [here](https://raw.githubusercontent.com/RobinNaumann/appSpace/main/degu.yaml). For the degu system, you can find documentation below.
 
