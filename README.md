@@ -1,4 +1,4 @@
-# appSpace | degu _<img src="./public/icon.svg" width="40" align="right"/>_
+# appSpace | degu _<img src="./public/assets/icon.svg" width="40" align="right"/>_
 
 **appSpace** is a simple web app that displays a collection of apps. The apps are defined in a `degu.yaml` file. The appSpace fetches the information from the file and displays it in a nice and clean way. The appSpace is built using `preact` and `typescript`.
 
