@@ -26,7 +26,7 @@ export function PageMetaSetter({ app }: { app: AppModel }) {
   useEffect(() => {
     console.log("setting page meta");
     _setPageMeta(app);
-    moewe.event("open_app", { app_id: app.name });
+    moewe.event("open_app", { app_name: app.name });
   }, [app]);
 
   return <div style="display: none" />;

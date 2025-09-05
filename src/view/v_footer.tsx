@@ -43,7 +43,7 @@ export function FooterView() {
         <span style="margin: 0 0.4rem">
           <Hamburg width={0.7} />
         </span>
-        Hamburg, Germany
+        Hamburg
       </div>
     </div>
   );

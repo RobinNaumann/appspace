@@ -16,7 +16,7 @@ import { HomeView } from "./view/v_home";
 
 export const appInfo = {
   name: "degu appSpace",
-  version: "0.3.1",
+  version: "0.3.3",
   repo: "https://github.com/RobinNaumann/appspace",
 };
 

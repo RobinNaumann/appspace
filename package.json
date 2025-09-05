@@ -17,6 +17,7 @@
     "pocketbase": "^0.20.1",
     "preact": "^10.13.1",
     "preact-router": "^4.1.2",
+    "react-use-draggable-scroll": "^0.4.7",
     "ts-transformer-keys": "^0.4.4",
     "ttypescript": "^1.5.15",
     "yaml": "^2.4.1"

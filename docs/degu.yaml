@@ -25,5 +25,5 @@ config:
 apps:
   appspace:
     ref: https://raw.githubusercontent.com/RobinNaumann/appspace/main/degu.yaml
-  disko:
-    ref: https://raw.githubusercontent.com/RobinNaumann/disko/main/degu.yaml
+  wallpaper_a_day:
+    ref: https://raw.githubusercontent.com/RobinNaumann/wallpaper_a_day/main/degu.yaml
